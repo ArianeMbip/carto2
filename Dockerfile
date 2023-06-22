@@ -1,19 +1,24 @@
-# Create image based on the official .NET Core 7 runtime image from Microsoft
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
+
+# Copy csproj and restore as distinct layers
+COPY ["ApiCartobani/src/ApiCartobani/ApiCartobani.csproj", "./ApiCartobani/src/ApiCartobani/"]
+COPY ["SharedKernel/SharedKernel.csproj", "./SharedKernel/"]
+RUN dotnet restore "./ApiCartobani/src/ApiCartobani/ApiCartobani.csproj"
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet build "ApiCartobani/src/ApiCartobani/ApiCartobani.csproj" -c Release -o /app/build
+
+FROM build-env AS publish
+RUN dotnet publish "ApiCartobani/src/ApiCartobani/ApiCartobani.csproj" -c Release -o /app/out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=publish /app/out .
+
+ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
 
-# Create image based on the official .NET Core 7 SDK image from Microsoft
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
-COPY ["CartoMongo.csproj", ""]
-RUN dotnet restore "./CartoMongo.csproj"
-COPY . .
-WORKDIR "/src/."
-RUN dotnet build "CartoMongo.csproj" -c Release -o /app/build
-
-# Create final image using the base image and copying the build files
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app/build .
-ENTRYPOINT ["dotnet", "CartoMongo.dll"]
+ENTRYPOINT ["dotnet", "/app/ApiCartobani.dll"]
