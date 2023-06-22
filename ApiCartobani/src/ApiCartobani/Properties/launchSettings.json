@@ -1,0 +1,41 @@
+{
+  "profiles": {
+    "Development": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+
+      "CartoDb": {
+        //"ConnectionString": "mongodb://root:Orange19@172.26.76.96:30722",
+        "ConnectionString": "mongodb://localhost:27017",
+        "DatabaseName": "cartodb",
+        "ActifCollectionName": "Actifs",
+        "TypeElementCollectionName": "TypeElements",
+        "DACollectionName": "DAs",
+        "FluxCollectionName": "Flux",
+        "IconeCollectionName": "Icones",
+        "EnvironnementCollectionName": "Environnements",
+        "RoleCollectionName": "Roles"
+
+      },
+
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AUTH_AUDIENCE": "Audience",
+        "AUTH_AUTHORITY": "http://localhost:3255/auth/realms/DevRealm",
+        "AUTH_AUTHORIZATION_URL": "http://localhost:3255/auth/realms/DevRealm/protocol/openid-connect/auth",
+        "AUTH_TOKEN_URL": "http://localhost:3255/auth/realms/DevRealm/protocol/openid-connect/token",
+        "AUTH_CLIENT_ID": "ClientId",
+        "AUTH_CLIENT_SECRET": "ClientSecret",
+        "DB_CONNECTION_STRING": "Data Source=localhost,49713;Integrated Security=False;Database=dev_dockerconfig;User ID=SA;Password=#localDockerPassword#",
+        "RMQ_HOST": "localhost",
+        "RMQ_VIRTUAL_HOST": "/",
+        "RMQ_USERNAME": "guest",
+        "RMQ_PASSWORD": "guest",
+        "RMQ_PORT": "49711",
+        "JAEGER_HOST": "localhost"
+      },
+      "applicationUrl": "https://localhost:5000"
+    }
+  }
+}

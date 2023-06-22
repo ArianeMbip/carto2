@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CData.MongoDB" Version="22.0.8462" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
+    <PackageReference Include="MongoFramework" Version="0.28.1" />
+    <PackageReference Include="ParkBee.MongoDb" Version="1.2.2" />
+    <PackageReference Include="ParkBee.MongoDb.DependencyInjection" Version="1.0.5" />
+  </ItemGroup>
+
+</Project>

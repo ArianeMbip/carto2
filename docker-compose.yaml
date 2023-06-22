@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  dockerconfig-db:
+    image: mcr.microsoft.com/mssql/server
+    restart: always
+    ports:
+      - '49713:1433'
+    environment:
+      - DB_USER=SA
+      - SA_PASSWORD=#localDockerPassword#
+      - DB_CONTAINER_NAME=dev_dockerconfig
+      - ACCEPT_EULA=Y
+    volumes:
+      - dockerconfig-data:/var/lib/sqlserver/data
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+#    port mappings: https://www.jaegertracing.io/docs/1.32/getting-started/
+    ports:
+      - "59197:5775/udp"
+      - "59196:6831/udp"
+      - "59198:6832/udp"
+      - "59199:5778"
+      - "59200:16686"
+      - "59201:14250"
+      - "59202:14268"
+      - "59203:14269"
+      - "59204:9411"
+
+        
+volumes:
+  # compose volumes marker - do not delete
+  dockerconfig-data:

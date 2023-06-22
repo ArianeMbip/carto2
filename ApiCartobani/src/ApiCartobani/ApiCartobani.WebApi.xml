@@ -1,0 +1,1152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiCartobani</name>
+    </assembly>
+    <members>
+        <member name="M:ApiCartobani.Controllers.v1.ActifsController.AddActif(ApiCartobani.Domain.Actifs.Dtos.ActifForCreationDto)">
+            <summary>
+            Creates a new Actif record.
+            </summary>
+            <response code="201">Actif created.</response>
+            <response code="400">Actif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Actif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ActifsController.GetActif(System.Guid)">
+            <summary>
+            Gets a single Actif by ID.
+            </summary>
+            <response code="200">Actif record returned successfully.</response>
+            <response code="400">Actif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Actif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ActifsController.GetActifs(ApiCartobani.Domain.Actifs.Dtos.ActifParametersDto)">
+             <summary>
+             Gets a list of all Actifs.
+             </summary>
+             <response code="200">Actif list returned successfully.</response>
+             <response code="400">Actif has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Actif.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ActifsController.DeleteActif(System.Guid)">
+            <summary>
+            Deletes an existing Actif record.
+            </summary>
+            <response code="204">Actif deleted.</response>
+            <response code="400">Actif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Actif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ActifsController.UpdateActif(System.Guid,ApiCartobani.Domain.Actifs.Dtos.ActifForUpdateDto)">
+            <summary>
+            Updates an entire existing Actif.
+            </summary>
+            <response code="204">Actif updated.</response>
+            <response code="400">Actif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Actif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.AttributsController.AddAttribut(ApiCartobani.Domain.Attributs.Dtos.AttributForCreationDto)">
+            <summary>
+            Creates a new Attribut record.
+            </summary>
+            <response code="201">Attribut created.</response>
+            <response code="400">Attribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Attribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.AttributsController.GetAttribut(System.Guid)">
+            <summary>
+            Gets a single Attribut by ID.
+            </summary>
+            <response code="200">Attribut record returned successfully.</response>
+            <response code="400">Attribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Attribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.AttributsController.GetAttributs(ApiCartobani.Domain.Attributs.Dtos.AttributParametersDto)">
+             <summary>
+             Gets a list of all Attributs.
+             </summary>
+             <response code="200">Attribut list returned successfully.</response>
+             <response code="400">Attribut has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Attribut.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.AttributsController.DeleteAttribut(System.Guid)">
+            <summary>
+            Deletes an existing Attribut record.
+            </summary>
+            <response code="204">Attribut deleted.</response>
+            <response code="400">Attribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Attribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.AttributsController.UpdateAttribut(System.Guid,ApiCartobani.Domain.Attributs.Dtos.AttributForUpdateDto)">
+            <summary>
+            Updates an entire existing Attribut.
+            </summary>
+            <response code="204">Attribut updated.</response>
+            <response code="400">Attribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Attribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ComposantsController.AddComposant(ApiCartobani.Domain.Composants.Dtos.ComposantForCreationDto)">
+            <summary>
+            Creates a new Composant record.
+            </summary>
+            <response code="201">Composant created.</response>
+            <response code="400">Composant has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Composant.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ComposantsController.GetComposant(System.Guid)">
+            <summary>
+            Gets a single Composant by ID.
+            </summary>
+            <response code="200">Composant record returned successfully.</response>
+            <response code="400">Composant has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Composant.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ComposantsController.GetComposants(ApiCartobani.Domain.Composants.Dtos.ComposantParametersDto)">
+             <summary>
+             Gets a list of all Composants.
+             </summary>
+             <response code="200">Composant list returned successfully.</response>
+             <response code="400">Composant has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Composant.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ComposantsController.DeleteComposant(System.Guid)">
+            <summary>
+            Deletes an existing Composant record.
+            </summary>
+            <response code="204">Composant deleted.</response>
+            <response code="400">Composant has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Composant.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ComposantsController.UpdateComposant(System.Guid,ApiCartobani.Domain.Composants.Dtos.ComposantForUpdateDto)">
+            <summary>
+            Updates an entire existing Composant.
+            </summary>
+            <response code="204">Composant updated.</response>
+            <response code="400">Composant has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Composant.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ContactsController.AddContact(ApiCartobani.Domain.Contacts.Dtos.ContactForCreationDto)">
+            <summary>
+            Creates a new Contact record.
+            </summary>
+            <response code="201">Contact created.</response>
+            <response code="400">Contact has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Contact.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ContactsController.GetContact(System.Guid)">
+            <summary>
+            Gets a single Contact by ID.
+            </summary>
+            <response code="200">Contact record returned successfully.</response>
+            <response code="400">Contact has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Contact.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ContactsController.GetContacts(ApiCartobani.Domain.Contacts.Dtos.ContactParametersDto)">
+             <summary>
+             Gets a list of all Contacts.
+             </summary>
+             <response code="200">Contact list returned successfully.</response>
+             <response code="400">Contact has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Contact.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ContactsController.DeleteContact(System.Guid)">
+            <summary>
+            Deletes an existing Contact record.
+            </summary>
+            <response code="204">Contact deleted.</response>
+            <response code="400">Contact has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Contact.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ContactsController.UpdateContact(System.Guid,ApiCartobani.Domain.Contacts.Dtos.ContactForUpdateDto)">
+            <summary>
+            Updates an entire existing Contact.
+            </summary>
+            <response code="204">Contact updated.</response>
+            <response code="400">Contact has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Contact.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.DAsController.AddDA(ApiCartobani.Domain.DAs.Dtos.DAForCreationDto)">
+            <summary>
+            Creates a new DA record.
+            </summary>
+            <response code="201">DA created.</response>
+            <response code="400">DA has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the DA.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.DAsController.GetDA(System.Guid)">
+            <summary>
+            Gets a single DA by ID.
+            </summary>
+            <response code="200">DA record returned successfully.</response>
+            <response code="400">DA has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the DA.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.DAsController.GetDAs(ApiCartobani.Domain.DAs.Dtos.DAParametersDto)">
+             <summary>
+             Gets a list of all DAs.
+             </summary>
+             <response code="200">DA list returned successfully.</response>
+             <response code="400">DA has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the DA.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.DAsController.DeleteDA(System.Guid)">
+            <summary>
+            Deletes an existing DA record.
+            </summary>
+            <response code="204">DA deleted.</response>
+            <response code="400">DA has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the DA.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.DAsController.UpdateDA(System.Guid,ApiCartobani.Domain.DAs.Dtos.DAForUpdateDto)">
+            <summary>
+            Updates an entire existing DA.
+            </summary>
+            <response code="204">DA updated.</response>
+            <response code="400">DA has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the DA.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.EnvironnementsController.AddEnvironnement(ApiCartobani.Domain.Environnements.Dtos.EnvironnementForCreationDto)">
+            <summary>
+            Creates a new Environnement record.
+            </summary>
+            <response code="201">Environnement created.</response>
+            <response code="400">Environnement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Environnement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.EnvironnementsController.GetEnvironnement(System.Guid)">
+            <summary>
+            Gets a single Environnement by ID.
+            </summary>
+            <response code="200">Environnement record returned successfully.</response>
+            <response code="400">Environnement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Environnement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.EnvironnementsController.GetEnvironnements(ApiCartobani.Domain.Environnements.Dtos.EnvironnementParametersDto)">
+             <summary>
+             Gets a list of all Environnements.
+             </summary>
+             <response code="200">Environnement list returned successfully.</response>
+             <response code="400">Environnement has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Environnement.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.EnvironnementsController.DeleteEnvironnement(System.Guid)">
+            <summary>
+            Deletes an existing Environnement record.
+            </summary>
+            <response code="204">Environnement deleted.</response>
+            <response code="400">Environnement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Environnement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.EnvironnementsController.UpdateEnvironnement(System.Guid,ApiCartobani.Domain.Environnements.Dtos.EnvironnementForUpdateDto)">
+            <summary>
+            Updates an entire existing Environnement.
+            </summary>
+            <response code="204">Environnement updated.</response>
+            <response code="400">Environnement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Environnement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FluxController.AddFlux(ApiCartobani.Domain.Flux.Dtos.FluxForCreationDto)">
+            <summary>
+            Creates a new Flux record.
+            </summary>
+            <response code="201">Flux created.</response>
+            <response code="400">Flux has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Flux.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FluxController.GetFlux(System.Guid)">
+            <summary>
+            Gets a single Flux by ID.
+            </summary>
+            <response code="200">Flux record returned successfully.</response>
+            <response code="400">Flux has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Flux.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FluxController.GetFlux(ApiCartobani.Domain.Flux.Dtos.FluxParametersDto)">
+             <summary>
+             Gets a list of all Flux.
+             </summary>
+             <response code="200">Flux list returned successfully.</response>
+             <response code="400">Flux has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Flux.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FluxController.DeleteFlux(System.Guid)">
+            <summary>
+            Deletes an existing Flux record.
+            </summary>
+            <response code="204">Flux deleted.</response>
+            <response code="400">Flux has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Flux.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FluxController.UpdateFlux(System.Guid,ApiCartobani.Domain.Flux.Dtos.FluxForUpdateDto)">
+            <summary>
+            Updates an entire existing Flux.
+            </summary>
+            <response code="204">Flux updated.</response>
+            <response code="400">Flux has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Flux.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FonctionnalitesController.AddFonctionnalite(ApiCartobani.Domain.Fonctionnalites.Dtos.FonctionnaliteForCreationDto)">
+            <summary>
+            Creates a new Fonctionnalite record.
+            </summary>
+            <response code="201">Fonctionnalite created.</response>
+            <response code="400">Fonctionnalite has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FonctionnalitesController.GetFonctionnalite(System.Guid)">
+            <summary>
+            Gets a single Fonctionnalite by ID.
+            </summary>
+            <response code="200">Fonctionnalite record returned successfully.</response>
+            <response code="400">Fonctionnalite has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FonctionnalitesController.GetFonctionnalites(ApiCartobani.Domain.Fonctionnalites.Dtos.FonctionnaliteParametersDto)">
+             <summary>
+             Gets a list of all Fonctionnalites.
+             </summary>
+             <response code="200">Fonctionnalite list returned successfully.</response>
+             <response code="400">Fonctionnalite has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FonctionnalitesController.DeleteFonctionnalite(System.Guid)">
+            <summary>
+            Deletes an existing Fonctionnalite record.
+            </summary>
+            <response code="204">Fonctionnalite deleted.</response>
+            <response code="400">Fonctionnalite has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.FonctionnalitesController.UpdateFonctionnalite(System.Guid,ApiCartobani.Domain.Fonctionnalites.Dtos.FonctionnaliteForUpdateDto)">
+            <summary>
+            Updates an entire existing Fonctionnalite.
+            </summary>
+            <response code="204">Fonctionnalite updated.</response>
+            <response code="400">Fonctionnalite has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.AddGestionnaireActif(ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifForCreationDto)">
+            <summary>
+            Creates a new GestionnaireActif record.
+            </summary>
+            <response code="201">GestionnaireActif created.</response>
+            <response code="400">GestionnaireActif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.GetGestionnaireActif(System.Guid)">
+            <summary>
+            Gets a single GestionnaireActif by ID.
+            </summary>
+            <response code="200">GestionnaireActif record returned successfully.</response>
+            <response code="400">GestionnaireActif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.GetGestionnaireActif(ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifParametersDto)">
+             <summary>
+             Gets a list of all GestionnaireActif.
+             </summary>
+             <response code="200">GestionnaireActif list returned successfully.</response>
+             <response code="400">GestionnaireActif has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.DeleteGestionnaireActif(System.Guid)">
+            <summary>
+            Deletes an existing GestionnaireActif record.
+            </summary>
+            <response code="204">GestionnaireActif deleted.</response>
+            <response code="400">GestionnaireActif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.UpdateGestionnaireActif(System.Guid,ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifForUpdateDto)">
+            <summary>
+            Updates an entire existing GestionnaireActif.
+            </summary>
+            <response code="204">GestionnaireActif updated.</response>
+            <response code="400">GestionnaireActif has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.HistoriquesController.AddHistorique(ApiCartobani.Domain.Historiques.Dtos.HistoriqueForCreationDto)">
+            <summary>
+            Creates a new Historique record.
+            </summary>
+            <response code="201">Historique created.</response>
+            <response code="400">Historique has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Historique.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.HistoriquesController.GetHistorique(System.Guid)">
+            <summary>
+            Gets a single Historique by ID.
+            </summary>
+            <response code="200">Historique record returned successfully.</response>
+            <response code="400">Historique has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Historique.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.HistoriquesController.GetHistoriques(ApiCartobani.Domain.Historiques.Dtos.HistoriqueParametersDto)">
+             <summary>
+             Gets a list of all Historiques.
+             </summary>
+             <response code="200">Historique list returned successfully.</response>
+             <response code="400">Historique has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Historique.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.HistoriquesController.DeleteHistorique(System.Guid)">
+            <summary>
+            Deletes an existing Historique record.
+            </summary>
+            <response code="204">Historique deleted.</response>
+            <response code="400">Historique has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Historique.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.HistoriquesController.UpdateHistorique(System.Guid,ApiCartobani.Domain.Historiques.Dtos.HistoriqueForUpdateDto)">
+            <summary>
+            Updates an entire existing Historique.
+            </summary>
+            <response code="204">Historique updated.</response>
+            <response code="400">Historique has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Historique.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.IconesController.AddIcone(ApiCartobani.Domain.Icones.Dtos.IconeForCreationDto)">
+            <summary>
+            Creates a new Icone record.
+            </summary>
+            <response code="201">Icone created.</response>
+            <response code="400">Icone has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Icone.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.IconesController.GetIcone(System.Guid)">
+            <summary>
+            Gets a single Icone by ID.
+            </summary>
+            <response code="200">Icone record returned successfully.</response>
+            <response code="400">Icone has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Icone.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.IconesController.GetIcones(ApiCartobani.Domain.Icones.Dtos.IconeParametersDto)">
+             <summary>
+             Gets a list of all Icones.
+             </summary>
+             <response code="200">Icone list returned successfully.</response>
+             <response code="400">Icone has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Icone.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.IconesController.DeleteIcone(System.Guid)">
+            <summary>
+            Deletes an existing Icone record.
+            </summary>
+            <response code="204">Icone deleted.</response>
+            <response code="400">Icone has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Icone.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.IconesController.UpdateIcone(System.Guid,ApiCartobani.Domain.Icones.Dtos.IconeForUpdateDto)">
+            <summary>
+            Updates an entire existing Icone.
+            </summary>
+            <response code="204">Icone updated.</response>
+            <response code="400">Icone has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Icone.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.InterfacesUtilisateurController.AddInterfaceUtilisateur(ApiCartobani.Domain.InterfacesUtilisateur.Dtos.InterfaceUtilisateurForCreationDto)">
+            <summary>
+            Creates a new InterfaceUtilisateur record.
+            </summary>
+            <response code="201">InterfaceUtilisateur created.</response>
+            <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.InterfacesUtilisateurController.GetInterfaceUtilisateur(System.Guid)">
+            <summary>
+            Gets a single InterfaceUtilisateur by ID.
+            </summary>
+            <response code="200">InterfaceUtilisateur record returned successfully.</response>
+            <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.InterfacesUtilisateurController.GetInterfacesUtilisateur(ApiCartobani.Domain.InterfacesUtilisateur.Dtos.InterfaceUtilisateurParametersDto)">
+             <summary>
+             Gets a list of all InterfacesUtilisateur.
+             </summary>
+             <response code="200">InterfaceUtilisateur list returned successfully.</response>
+             <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.InterfacesUtilisateurController.DeleteInterfaceUtilisateur(System.Guid)">
+            <summary>
+            Deletes an existing InterfaceUtilisateur record.
+            </summary>
+            <response code="204">InterfaceUtilisateur deleted.</response>
+            <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.InterfacesUtilisateurController.UpdateInterfaceUtilisateur(System.Guid,ApiCartobani.Domain.InterfacesUtilisateur.Dtos.InterfaceUtilisateurForUpdateDto)">
+            <summary>
+            Updates an entire existing InterfaceUtilisateur.
+            </summary>
+            <response code="204">InterfaceUtilisateur updated.</response>
+            <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.AddPieceJointe(ApiCartobani.Domain.PiecesJointes.Dtos.PieceJointeForCreationDto)">
+            <summary>
+            Creates a new PieceJointe record.
+            </summary>
+            <response code="201">PieceJointe created.</response>
+            <response code="400">PieceJointe has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the PieceJointe.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.GetPieceJointe(System.Guid)">
+            <summary>
+            Gets a single PieceJointe by ID.
+            </summary>
+            <response code="200">PieceJointe record returned successfully.</response>
+            <response code="400">PieceJointe has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the PieceJointe.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.GetPiecesJointes(ApiCartobani.Domain.PiecesJointes.Dtos.PieceJointeParametersDto)">
+             <summary>
+             Gets a list of all PiecesJointes.
+             </summary>
+             <response code="200">PieceJointe list returned successfully.</response>
+             <response code="400">PieceJointe has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the PieceJointe.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.DeletePieceJointe(System.Guid)">
+            <summary>
+            Deletes an existing PieceJointe record.
+            </summary>
+            <response code="204">PieceJointe deleted.</response>
+            <response code="400">PieceJointe has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the PieceJointe.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.UpdatePieceJointe(System.Guid,ApiCartobani.Domain.PiecesJointes.Dtos.PieceJointeForUpdateDto)">
+            <summary>
+            Updates an entire existing PieceJointe.
+            </summary>
+            <response code="204">PieceJointe updated.</response>
+            <response code="400">PieceJointe has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the PieceJointe.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.AddRolePrivilege(ApiCartobani.Domain.RolePrivileges.Dtos.RolePrivilegeForCreationDto)">
+            <summary>
+            Creates a new RolePrivilege record.
+            </summary>
+            <response code="201">RolePrivilege created.</response>
+            <response code="400">RolePrivilege has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the RolePrivilege.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.GetRolePrivilege(System.Guid)">
+            <summary>
+            Gets a single RolePrivilege by ID.
+            </summary>
+            <response code="200">RolePrivilege record returned successfully.</response>
+            <response code="400">RolePrivilege has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the RolePrivilege.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.GetRolePrivileges(ApiCartobani.Domain.RolePrivileges.Dtos.RolePrivilegeParametersDto)">
+             <summary>
+             Gets a list of all RolePrivileges.
+             </summary>
+             <response code="200">RolePrivilege list returned successfully.</response>
+             <response code="400">RolePrivilege has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the RolePrivilege.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.DeleteRolePrivilege(System.Guid)">
+            <summary>
+            Deletes an existing RolePrivilege record.
+            </summary>
+            <response code="204">RolePrivilege deleted.</response>
+            <response code="400">RolePrivilege has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the RolePrivilege.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.UpdateRolePrivilege(System.Guid,ApiCartobani.Domain.RolePrivileges.Dtos.RolePrivilegeForUpdateDto)">
+            <summary>
+            Updates an entire existing RolePrivilege.
+            </summary>
+            <response code="204">RolePrivilege updated.</response>
+            <response code="400">RolePrivilege has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the RolePrivilege.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.AddTypeElement(ApiCartobani.Domain.TypeElements.Dtos.TypeElementForCreationDto)">
+            <summary>
+            Creates a new TypeElement record.
+            </summary>
+            <response code="201">TypeElement created.</response>
+            <response code="400">TypeElement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the TypeElement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.GetTypeElement(System.Guid)">
+            <summary>
+            Gets a single TypeElement by ID.
+            </summary>
+            <response code="200">TypeElement record returned successfully.</response>
+            <response code="400">TypeElement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the TypeElement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.GetTypeElements(ApiCartobani.Domain.TypeElements.Dtos.TypeElementParametersDto)">
+             <summary>
+             Gets a list of all TypeElements.
+             </summary>
+             <response code="200">TypeElement list returned successfully.</response>
+             <response code="400">TypeElement has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the TypeElement.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.DeleteTypeElement(System.Guid)">
+            <summary>
+            Deletes an existing TypeElement record.
+            </summary>
+            <response code="204">TypeElement deleted.</response>
+            <response code="400">TypeElement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the TypeElement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.UpdateTypeElement(System.Guid,ApiCartobani.Domain.TypeElements.Dtos.TypeElementForUpdateDto)">
+            <summary>
+            Updates an entire existing TypeElement.
+            </summary>
+            <response code="204">TypeElement updated.</response>
+            <response code="400">TypeElement has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the TypeElement.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.AddUnivers(ApiCartobani.Domain.Universs.Dtos.UniversForCreationDto)">
+            <summary>
+            Creates a new Univers record.
+            </summary>
+            <response code="201">Univers created.</response>
+            <response code="400">Univers has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Univers.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.GetUnivers(System.Guid)">
+            <summary>
+            Gets a single Univers by ID.
+            </summary>
+            <response code="200">Univers record returned successfully.</response>
+            <response code="400">Univers has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Univers.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.GetUnivers(ApiCartobani.Domain.Universs.Dtos.UniversParametersDto)">
+             <summary>
+             Gets a list of all Univers.
+             </summary>
+             <response code="200">Univers list returned successfully.</response>
+             <response code="400">Univers has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the Univers.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.DeleteUnivers(System.Guid)">
+            <summary>
+            Deletes an existing Univers record.
+            </summary>
+            <response code="204">Univers deleted.</response>
+            <response code="400">Univers has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Univers.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.UpdateUnivers(System.Guid,ApiCartobani.Domain.Universs.Dtos.UniversForUpdateDto)">
+            <summary>
+            Updates an entire existing Univers.
+            </summary>
+            <response code="204">Univers updated.</response>
+            <response code="400">Univers has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the Univers.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.AddValeurAttribut(ApiCartobani.Domain.ValeurAttributs.Dtos.ValeurAttributForCreationDto)">
+            <summary>
+            Creates a new ValeurAttribut record.
+            </summary>
+            <response code="201">ValeurAttribut created.</response>
+            <response code="400">ValeurAttribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the ValeurAttribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.GetValeurAttribut(System.Guid)">
+            <summary>
+            Gets a single ValeurAttribut by ID.
+            </summary>
+            <response code="200">ValeurAttribut record returned successfully.</response>
+            <response code="400">ValeurAttribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the ValeurAttribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.GetValeurAttributs(ApiCartobani.Domain.ValeurAttributs.Dtos.ValeurAttributParametersDto)">
+             <summary>
+             Gets a list of all ValeurAttributs.
+             </summary>
+             <response code="200">ValeurAttribut list returned successfully.</response>
+             <response code="400">ValeurAttribut has missing/invalid values.</response>
+             <response code="500">There was an error on the server while creating the ValeurAttribut.</response>
+             <remarks>
+             Requests can be narrowed down with a variety of query string values:
+             ## Query String Parameters
+             - **PageNumber**: An integer value that designates the page of records that should be returned.
+             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
+             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
+             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
+                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
+                 - {Operator} is one of the Operators below
+                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
+            
+                | Operator | Meaning                       | Operator  | Meaning                                      |
+                | -------- | ----------------------------- | --------- | -------------------------------------------- |
+                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
+                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
+                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
+                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
+                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
+                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
+                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
+                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
+             </remarks>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.DeleteValeurAttribut(System.Guid)">
+            <summary>
+            Deletes an existing ValeurAttribut record.
+            </summary>
+            <response code="204">ValeurAttribut deleted.</response>
+            <response code="400">ValeurAttribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the ValeurAttribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.UpdateValeurAttribut(System.Guid,ApiCartobani.Domain.ValeurAttributs.Dtos.ValeurAttributForUpdateDto)">
+            <summary>
+            Updates an entire existing ValeurAttribut.
+            </summary>
+            <response code="204">ValeurAttribut updated.</response>
+            <response code="400">ValeurAttribut has missing/invalid values.</response>
+            <response code="500">There was an error on the server while creating the ValeurAttribut.</response>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.ActifConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Actifs.Actif})">
+            <summary>
+            The database configuration for Actifs. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.AttributConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Attributs.Attribut})">
+            <summary>
+            The database configuration for Attributs. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.ComposantConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Composants.Composant})">
+            <summary>
+            The database configuration for Composants. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.ContactConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Contacts.Contact})">
+            <summary>
+            The database configuration for Contacts. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.DAConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.DAs.DA})">
+            <summary>
+            The database configuration for DAs. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.EnvironnementConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Environnements.Environnement})">
+            <summary>
+            The database configuration for Environnements. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.FluxConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Flux.Flux})">
+            <summary>
+            The database configuration for Flux. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.FonctionnaliteConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Fonctionnalites.Fonctionnalite})">
+            <summary>
+            The database configuration for Fonctionnalites. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.GestionnaireActifConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.GestionnaireActifs.GestionnaireActif})">
+            <summary>
+            The database configuration for GestionnaireActif. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.HistoriqueConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Historiques.Historique})">
+            <summary>
+            The database configuration for Historiques. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.IconeConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Icones.Icone})">
+            <summary>
+            The database configuration for Icones. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.InterfaceUtilisateurConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.InterfacesUtilisateur.InterfaceUtilisateur})">
+            <summary>
+            The database configuration for InterfacesUtilisateur. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.PieceJointeConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.PiecesJointes.PieceJointe})">
+            <summary>
+            The database configuration for PiecesJointes. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.RolePrivilegeConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.RolePrivileges.RolePrivilege})">
+            <summary>
+            The database configuration for RolePrivileges. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.TypeElementConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.TypeElements.TypeElement})">
+            <summary>
+            The database configuration for TypeElements. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.UniversConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Universs.Univers})">
+            <summary>
+            The database configuration for Univers. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.ValeurAttributConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.ValeurAttributs.ValeurAttribut})">
+            <summary>
+            The database configuration for ValeurAttributs. 
+            </summary>
+        </member>
+        <member name="M:ApiCartobani.Extensions.Services.WebAppServiceConfiguration.AddBoundaryServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+            <summary>
+            Registers all services in the assembly of the given interface.
+            </summary>
+        </member>
+    </members>
+</doc>
