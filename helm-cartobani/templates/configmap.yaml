@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  MAX_CODE_PROMO_BY_MSISDN: {{ .Values.MAX_CODE_PROMO_BY_MSISDN }}
+  SERVICE_PULSE_NAME: {{ .Values.SERVICE_PULSE_NAME }}
+  AUTH_AUDIENCE: {{ .Values.AUTH_AUDIENCE }}
+  AUTH_AUTHORITY: {{ .Values.AUTH_AUTHORITY }}
+  AUTH_AUTHORIZATION_URL: {{ .Values.AUTH_AUTHORIZATION_URL }}
+  AUTH_TOKEN_URL: {{ .Values.AUTH_TOKEN_URL }} 
+  AUTH_CLIENT_ID: {{ .Values.AUTH_CLIENT_ID }}
+
+  PULSE_MAX_OLD: {{ .Values.PULSE_MAX_OLD }}
+  MicrosvcBaseUrl: {{ .Values.MicrosvcBaseUrl }}
+  MicrosvcFromSms: {{ .Values.MicrosvcFromSms }}
+  SesameBaseUrl: {{ .Values.SesameBaseUrl }}
+
+  Graylog_HostnameOrAddress: {{ .Values.Graylog_HostnameOrAddress }}
+  Graylog_Port: {{ .Values.Graylog_Port }}
+  Graylog_TransportType: {{ .Values.Graylog_TransportType }}
+  Graylog_MinimumLogEventLevel: {{ .Values.Graylog_MinimumLogEventLevel }}
+  Graylog_ApplicationName: {{ .Values.Graylog_ApplicationName }}
+
+  

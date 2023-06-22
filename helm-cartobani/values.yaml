@@ -8,7 +8,7 @@ image:
   repository: nexus.orange.cm:4443/backend-cartobani
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20230622.5"
+  tag: "20230622.6"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
@@ -38,7 +38,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 80 
+  targetPort: 80
 
 ingress:
   enabled: true
@@ -51,10 +52,10 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls: 
+    - secretName: "adcmwilcard"
+      hosts:
+        - api.cartobani.k8s.adcm.orangecm
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -80,3 +81,28 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+MAX_CODE_PROMO_BY_MSISDN: "'2'"
+
+AUTH_AUDIENCE: "account"
+AUTH_AUTHORITY: "https://idpo.orange.cm/auth/realms/digital-app"
+AUTH_AUTHORIZATION_URL: "https://idpo.orange.cm/auth/realms/digital-app/protocol/openid-connect/auth"
+AUTH_TOKEN_URL: "https://idpo.orange.cm/auth/realms/digital-app/protocol/openid-connect/token"
+AUTH_CLIENT_ID: "mon-modem-a10k"
+# AUTH_CLIENT_SECRET: "ClientSecret"
+
+DB_CONNECTION_STRING: "Server=172.21.97.8;Port=3306;User ID=byra;Password=byra@2019;Database=db_code_promo;Persist Security Info=False;Connect Timeout=300"
+DB_CONNECTION_STRING_PULSE: "Server=172.21.97.8;Port=3306;User ID=byra;Password=byra@2019;Database=omoney;Persist Security Info=False;Connect Timeout=300"
+SERVICE_PULSE_NAME: "PULSE"
+PULSE_MAX_OLD: "'35'"
+MicrosvcBaseUrl: "http://microsvc.orange.cm"
+MicrosvcFromSms: "Orange Shop"
+SesameBaseUrl: "http://sesame-api.orange.local"
+SesameBasicAuth: "Basic dS1lc3BhY2UtY2w6UGVYdWR0amVZaW5FZG5lRGlJZQ=="
+SECRET_ENCRIPTION_KEY: "b14ca5898a4e4133bbce2ea2315a1916"
+Graylog_HostnameOrAddress: "172.26.76.87"
+Graylog_Port: "'32247'"
+Graylog_TransportType: "Udp"
+Graylog_MinimumLogEventLevel: "Information"
+Graylog_ApplicationName: "MonModemA10k"
+

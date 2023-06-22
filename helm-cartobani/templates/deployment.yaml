@@ -13,10 +13,8 @@ spec:
       {{- include "backend-cartobani.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        devops: {{ randAlphaNum 5 | quote }}
       labels:
         {{- include "backend-cartobani.selectorLabels" . | nindent 8 }}
     spec:
@@ -33,6 +31,107 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:          
+          - name: "DB_CONNECTION_STRING"
+            valueFrom:
+              secretKeyRef:
+                key:  DB_CONNECTION_STRING
+                name: {{ .Release.Name }}-auth
+          - name: "DB_CONNECTION_STRING_PULSE"
+            valueFrom:
+              secretKeyRef:
+                key:  DB_CONNECTION_STRING_PULSE
+                name: {{ .Release.Name }}-auth
+          - name: AUTH_AUDIENCE
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: AUTH_AUDIENCE
+          - name: AUTH_AUTHORITY
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: AUTH_AUTHORITY
+          - name: AUTH_AUTHORIZATION_URL
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: AUTH_AUTHORIZATION_URL
+          - name: AUTH_TOKEN_URL
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: AUTH_TOKEN_URL
+          - name: AUTH_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: AUTH_CLIENT_ID
+          - name: MAX_CODE_PROMO_BY_MSISDN
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: MAX_CODE_PROMO_BY_MSISDN
+          - name: SERVICE_PULSE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: SERVICE_PULSE_NAME
+          - name: Graylog_HostnameOrAddress
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: Graylog_HostnameOrAddress
+          - name: Graylog_Port
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: Graylog_Port
+          - name: Graylog_TransportType
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: Graylog_TransportType
+          - name: Graylog_MinimumLogEventLevel
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: Graylog_MinimumLogEventLevel
+          - name: Graylog_ApplicationName
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: Graylog_ApplicationName
+          - name: PULSE_MAX_OLD
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: PULSE_MAX_OLD
+          - name: MicrosvcBaseUrl
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: MicrosvcBaseUrl
+          - name: MicrosvcFromSms
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: MicrosvcFromSms
+          - name: SesameBaseUrl
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Release.Name }}-configmap
+                key: SesameBaseUrl
+          - name: SesameBasicAuth
+            valueFrom:
+              secretKeyRef:
+                key:  SesameBasicAuth
+                name: {{ .Release.Name }}-auth
+          - name: SECRET_ENCRIPTION_KEY
+            valueFrom:
+              secretKeyRef:
+                key:  SECRET_ENCRIPTION_KEY
+                name: {{ .Release.Name }}-auth
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
