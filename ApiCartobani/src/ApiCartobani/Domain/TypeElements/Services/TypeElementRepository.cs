@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 public interface ITypeElementRepository : IGenericRepository<TypeElement>
 {
-    //public Task<List<TypeElement>> SearchByProperty(string propertyName, string searchValue);
+    
 }
 
 public sealed class TypeElementRepository : GenericRepository<TypeElement>, ITypeElementRepository

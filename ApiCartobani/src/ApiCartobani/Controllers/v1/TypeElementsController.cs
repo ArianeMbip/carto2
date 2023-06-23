@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Threading;
 using MediatR;
 using ApiCartobani.Domain.TypeElements.Services;
+using ApiCartobani.Domain.TypeElements;
+using MongoDB.Driver;
+using Sieve.Models;
 
 [ApiController]
 [Route("api/typeelements")]
@@ -127,12 +130,15 @@ public sealed class TypeElementsController: ControllerBase
         return Ok(queryResponse);
     }
 
-    //[HttpGet("search")]
-    //public async Task<IActionResult> SearchByProperty(string propertyName, string searchValue)
-    //{
-    //    var results = await _typeElementRepository.SearchByProperty(propertyName, searchValue);
-    //    return Ok(results);
-    //}
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchByProperty(string propertyName, string searchValue)
+    {
+        var filter = Builders<TypeElement>.Filter.Eq(propertyName, searchValue);
+        var results = await _typeElementRepository.GetAllAsync(filter);
+        return Ok(results);
+    }
+
+    
 
     /// <summary>
     /// Deletes an existing TypeElement record.

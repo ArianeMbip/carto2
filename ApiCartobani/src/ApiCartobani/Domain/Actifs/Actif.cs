@@ -101,10 +101,12 @@ public class Actif : BaseEntity
         newActif.Description = actifForCreationDto.Description;
         newActif.Version = actifForCreationDto.Version;
         newActif.Icone = actifForCreationDto.Icone;
-        newActif.Statut = actifForCreationDto.Statut;
+        //newActif.Statut = actifForCreationDto.Statut;
+        newActif.Statut = "Statut";
         newActif.TypeActif = actifForCreationDto.TypeActif;
         newActif.PreVersion = actifForCreationDto.PreVersion;
         newActif.Hierarchie = actifForCreationDto.Hierarchie;
+        
 
         newActif.QueueDomainEvent(new ActifCreated(){ Actif = newActif });
         

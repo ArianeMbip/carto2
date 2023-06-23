@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
 using System.Threading;
 using MediatR;
+using ApiCartobani.Domain.DAs.Dtos;
+using ApiCartobani.Domain.DAs.Features;
 
 [ApiController]
 [Route("api/actifs")]
@@ -36,15 +38,31 @@ public sealed class ActifsController: ControllerBase
     [Consumes("application/json")]
     [Produces("application/json")]
     [HttpPost(Name = "AddActif")]
-    public async Task<ActionResult<ActifDto>> AddActif([FromBody]ActifForCreationDto actifForCreation)
+    public async Task<ActionResult<ActifDto>> AddActif([FromBody] ActifForCreationDto actifForCreation)
     {
+        //création de l'actif
         var command = new AddActif.Command(actifForCreation);
         var commandResponse = await _mediator.Send(command);
+
+        //création du DA
+        var dAForCreation = new DAForCreationDto()
+        {
+            IdActif = commandResponse.Id
+        };
+        var commandDA = new AddDA.Command(dAForCreation);
+        await _mediator.Send(commandDA);
 
         return CreatedAtRoute("GetActif",
             new { commandResponse.Id },
             commandResponse);
+
+
+        //return CreatedAtRoute("GetActif",
+        //new { id = commandResponse.actif.Id },
+        //commandResponse);
+
     }
+
 
 
     /// <summary>

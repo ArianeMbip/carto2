@@ -11,13 +11,14 @@ using MediatR;
 using Sieve.Models;
 using Sieve.Services;
 using System.Linq.Expressions;
+using MongoDB.Driver;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 public static class GetTypeElementList
-{
+{ 
     public sealed class Query : IRequest<PagedList<TypeElementDto>>
     {
         public readonly TypeElementParametersDto QueryParameters;
-
         public Query(TypeElementParametersDto queryParameters)
         {
             QueryParameters = queryParameters;
@@ -41,9 +42,10 @@ public static class GetTypeElementList
         {
             try
             {
-                var collection1 = await _typeElementRepository.GetAllAsync();
-                Console.WriteLine($"{this.GetType()}: collection1={collection1.Count}");
+                var filter = Builders<TypeElement>.Filter.Eq("nom", "appli");
+                var collection1 = await _typeElementRepository.GetAllAsync(filter);
 
+                Console.WriteLine($"{this.GetType()}: collection1={collection1.Count}");
                 return new PagedList<TypeElementDto>(_mapper.Map<List<TypeElementDto>>(collection1), collection1.Count, 1, collection1.Count);
 /*
                 var collection = _typeElementRepository.Query().AsNoTracking();

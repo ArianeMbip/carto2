@@ -9,6 +9,9 @@ using MongoDB.Driver;
 using SharpCompress.Common;
 using System.Linq.Expressions;
 using ApiCartobani.Domain.TypeElements;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Sieve.Models;
+using Sieve.Services;
 
 public interface IGenericRepository<TEntity> : IApiCartobaniService
     where TEntity : BaseEntity
@@ -32,10 +35,12 @@ public interface IGenericRepository<TEntity> : IApiCartobaniService
     void Update(TEntity entity, CancellationToken cancellationToken = default);
     void Remove(TEntity entity, CancellationToken cancellationToken = default);
     void RemoveRange(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
-    Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<List<TEntity>> GetAllAsync (FilterDefinition<TEntity> Filter, CancellationToken cancellationToken = default);
+    
+
 }
 
-public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> 
+public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>
     where TEntity : BaseEntity
 {
     //private readonly CartobaniDbContext _dbContext;
@@ -70,19 +75,22 @@ public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>
         return entity;
     }
 
-    public virtual async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
+    //public virtual async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
+    //{
+    //    return await (await _collection.FindAsync(p => true)).ToListAsync();
+    //}
+
+    public virtual async Task<List<TEntity>> GetAllAsync(FilterDefinition<TEntity> Filter, CancellationToken cancellationToken = default)
+    //public virtual async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await (await _collection.FindAsync(p => true)).ToListAsync();
+        //var collection = _database.GetCollection<TypeElement>("TypeElements");
+        //var filter = Builders<TypeElement>.Filter.Eq(propertyName, searchValue);
+        //var entities = await GetAllAsync();
+        // return await _collection.FindAsync(Filter);
+        //var allElts = _collection.AsQueryable().ToList();
+        return await (await _collection.FindAsync(Filter, cancellationToken: cancellationToken)).ToListAsync(cancellationToken: cancellationToken);
     }
 
-    //public virtual async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken = default)
-    //public virtual async Task<List<TEntity>> GetAllAsync(FilterDefinition<TEntity> filter, CancellationToken cancellationToken = default)
-    //{
-    //    var filtre = Builders<TEntity>.Filter.Eq("Nom", "John");
-    //    var entities = await GetAllAsync(filter);
-    //    return await (await _collection.FindAsync(filtre)).ToListAsync();
-    //}
-    
     //public async Task<List<TypeElement>> SearchByProperty(string propertyName, string searchValue)
     //{
     //    var collection = _database.GetCollection<TypeElement>("TypeElements");
@@ -90,6 +98,7 @@ public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>
     //    var results = await collection.Find(filter).ToListAsync();
     //    return results;
     //}
+
 
     public virtual async Task<bool> Exists(Guid id, CancellationToken cancellationToken = default)
     {
