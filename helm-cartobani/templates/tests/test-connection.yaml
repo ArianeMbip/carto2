@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "backend-cartobani.fullname" . }}-test-connection"
+  labels:
+    {{- include "backend-cartobani.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "backend-cartobani.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
