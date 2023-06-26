@@ -50,14 +50,6 @@
                 | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
              </remarks>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.ActifsController.DeleteActif(System.Guid)">
-            <summary>
-            Deletes an existing Actif record.
-            </summary>
-            <response code="204">Actif deleted.</response>
-            <response code="400">Actif has missing/invalid values.</response>
-            <response code="500">There was an error on the server while creating the Actif.</response>
-        </member>
         <member name="M:ApiCartobani.Controllers.v1.ActifsController.UpdateActif(System.Guid,ApiCartobani.Domain.Actifs.Dtos.ActifForUpdateDto)">
             <summary>
             Updates an entire existing Actif.

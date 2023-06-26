@@ -38,6 +38,7 @@ public sealed class ActifsController: ControllerBase
     [Consumes("application/json")]
     [Produces("application/json")]
     [HttpPost(Name = "AddActif")]
+    [Authorize]
     public async Task<ActionResult<ActifDto>> AddActif([FromBody] ActifForCreationDto actifForCreation)
     {
         //création de l'actif
@@ -76,6 +77,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpGet("{id:guid}", Name = "GetActif")]
+    [Authorize]
     public async Task<ActionResult<ActifDto>> GetActif(Guid id)
     {
         var query = new GetActif.Query(id);
@@ -118,6 +120,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpGet(Name = "GetActifs")]
+    [Authorize]
     public async Task<IActionResult> GetActifs([FromQuery] ActifParametersDto actifParametersDto)
     {
         var query = new GetActifList.Query(actifParametersDto);
@@ -149,18 +152,18 @@ public sealed class ActifsController: ControllerBase
     /// <response code="204">Actif deleted.</response>
     /// <response code="400">Actif has missing/invalid values.</response>
     /// <response code="500">There was an error on the server while creating the Actif.</response>
-    [ProducesResponseType(204)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(500)]
-    [Produces("application/json")]
-    [HttpDelete("{id:guid}", Name = "DeleteActif")]
-    public async Task<ActionResult> DeleteActif(Guid id)
-    {
-        var command = new DeleteActif.Command(id);
-        await _mediator.Send(command);
+    //[ProducesResponseType(204)]
+    //[ProducesResponseType(400)]
+    //[ProducesResponseType(500)]
+    //[Produces("application/json")]
+    //[HttpDelete("{id:guid}", Name = "DeleteActif")]
+    //public async Task<ActionResult> DeleteActif(Guid id)
+    //{
+    //    var command = new DeleteActif.Command(id);
+    //    await _mediator.Send(command);
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 
 
     /// <summary>
@@ -174,6 +177,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpPut("{id:guid}", Name = "UpdateActif")]
+    [Authorize]
     public async Task<IActionResult> UpdateActif(Guid id, ActifForUpdateDto actif)
     {
         var command = new UpdateActif.Command(id, actif);
