@@ -19,6 +19,7 @@
     <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+    <PackageReference Include="MimeKit" Version="4.1.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
     <PackageReference Include="MongoFramework" Version="0.28.1" />
@@ -29,6 +30,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Include="ParkBee.MongoDb" Version="1.2.2" />
     <PackageReference Include="ParkBee.MongoDb.DependencyInjection" Version="1.0.5" />
+    <PackageReference Include="Refit" Version="7.0.0" />
     <PackageReference Include="Respawn" Version="6.0.0" />
   </ItemGroup>
 

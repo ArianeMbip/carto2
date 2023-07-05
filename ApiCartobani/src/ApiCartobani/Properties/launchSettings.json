@@ -38,7 +38,9 @@
         "AUTH_AUTHORITY": "http://keycloak.adcm.orangecm/auth/realms/digital-app",
         "AUTH_AUTHORIZATION_URL": "http://keycloak.adcm.orangecm/auth/realms/digital-app/protocol/openid-connect/auth",
         "AUTH_TOKEN_URL": "http://keycloak.adcm.orangecm/auth/realms/digital-app/protocol/openid-connect/token",
-        "AUTH_CLIENT_ID": "cartobani"
+        "AUTH_CLIENT_ID": "cartobani",
+
+        "GOTENBERG_BASEURL": "http://gotenberg.orange.local"
       },
       "applicationUrl": "https://localhost:5000"
     }

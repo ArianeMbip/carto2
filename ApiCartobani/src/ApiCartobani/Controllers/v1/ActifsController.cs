@@ -38,7 +38,7 @@ public sealed class ActifsController: ControllerBase
     [Consumes("application/json")]
     [Produces("application/json")]
     [HttpPost(Name = "AddActif")]
-    [Authorize]
+   // [Authorize]
     public async Task<ActionResult<ActifDto>> AddActif([FromBody] ActifForCreationDto actifForCreation)
     {
         //création de l'actif
@@ -77,7 +77,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpGet("{id:guid}", Name = "GetActif")]
-    [Authorize]
+   // [Authorize]
     public async Task<ActionResult<ActifDto>> GetActif(Guid id)
     {
         var query = new GetActif.Query(id);
@@ -120,7 +120,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpGet(Name = "GetActifs")]
-    [Authorize]
+   // [Authorize]
     public async Task<IActionResult> GetActifs([FromQuery] ActifParametersDto actifParametersDto)
     {
         var query = new GetActifList.Query(actifParametersDto);
@@ -177,7 +177,7 @@ public sealed class ActifsController: ControllerBase
     [ProducesResponseType(500)]
     [Produces("application/json")]
     [HttpPut("{id:guid}", Name = "UpdateActif")]
-    [Authorize]
+   // [Authorize]
     public async Task<IActionResult> UpdateActif(Guid id, ActifForUpdateDto actif)
     {
         var command = new UpdateActif.Command(id, actif);

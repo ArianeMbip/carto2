@@ -17,6 +17,8 @@ using System.Text.RegularExpressions;
 using ApiCartobani.Databases;
 using ParkBee.MongoDb.DependencyInjection;
 using ParkBee.MongoDb;
+using ApiTestMongo.Gotenberg;
+
 //using MongoFramework;
 
 public static class WebAppServiceConfiguration
@@ -40,8 +42,15 @@ public static class WebAppServiceConfiguration
 
         builder.Services.AddScoped<CartobaniDbContext>();
 
+
         // registers all services that inherit from your base service interface - IApiCartobaniService
         builder.Services.AddBoundaryServices(Assembly.GetExecutingAssembly());
+
+        builder.Services.AddHttpClient("gotenberg", c =>
+        {
+            c.BaseAddress = new Uri(Environment.GetEnvironmentVariable("GOTENBERG_BASEURL"));
+        });
+        builder.Services.AddScoped<IGotenbergService, GotenbergService>();
 
         builder.Services
             .AddMvc(options => options.Filters.Add<ErrorHandlerFilterAttribute>())

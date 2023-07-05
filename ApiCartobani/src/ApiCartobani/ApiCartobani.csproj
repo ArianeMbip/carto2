@@ -40,11 +40,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MimeKit" Version="4.1.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
     <PackageReference Include="MongoFramework" Version="0.28.1" />
     <PackageReference Include="ParkBee.MongoDb" Version="1.2.2" />
     <PackageReference Include="ParkBee.MongoDb.DependencyInjection" Version="1.0.5" />
+    <PackageReference Include="Refit" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 
     <PackageReference Include="Sieve" Version="2.5.5" />

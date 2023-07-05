@@ -12,12 +12,14 @@
     <PackageReference Include="CData.MongoDB" Version="22.0.8462" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+    <PackageReference Include="MimeKit" Version="4.1.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
     <PackageReference Include="MongoFramework" Version="0.28.1" />
     <PackageReference Include="Moq" Version="4.18.2" />
     <PackageReference Include="ParkBee.MongoDb" Version="1.2.2" />
     <PackageReference Include="ParkBee.MongoDb.DependencyInjection" Version="1.0.5" />
+    <PackageReference Include="Refit" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>

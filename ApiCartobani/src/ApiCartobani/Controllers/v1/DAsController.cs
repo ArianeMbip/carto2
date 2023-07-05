@@ -10,6 +10,10 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
 using System.Threading;
 using MediatR;
+using ApiTestMongo.Gotenberg.Commands;
+using ApiTestMongo.Gotenberg.Resources;
+using MimeKit;
+using ApiTestMongo.Gotenberg;
 
 [ApiController]
 [Route("api/das")]
@@ -17,10 +21,14 @@ using MediatR;
 public sealed class DAsController: ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly ILogger<DAsController> _logger;
+    private readonly IGotenbergService _gotenbergService;
 
-    public DAsController(IMediator mediator)
+    public DAsController(IMediator mediator, IGotenbergService gotenbergService, ILogger<DAsController> logger)
     {
         _mediator = mediator;
+        _gotenbergService = gotenbergService;
+        _logger = logger;
     }
     
 
@@ -163,6 +171,35 @@ public sealed class DAsController: ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet("pdf", Name = "Download")]
+    public async Task<IActionResult> Download()
+    {
+        _logger.LogInformation("pdfinfo");
+        var directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Pdf", "htmlpage.html");
+        var builder = new BodyBuilder();
+        using (StreamReader reader = System.IO.File.OpenText(directoryPath))
+        {
+            builder.HtmlBody = reader.ReadToEnd();
+        }
+        var dossierFile = string.Format(builder.HtmlBody //dossier.CompanyName, dossier.SectorOfActivity, dossier.PotentialRevenue,
+                                                         //dossier.PotentialVolume, dossier.NatureOfActivities, dossier.NatureOfOMActivities, dossier.LegalRepresentativeName,
+                                                         //string.Join(", ", dossier.BeneficialOwners.ToList().ConvertAll(o => o.BeneficialOwnerName)), dossier.CompanyType,
+                                                         //dossier.OthersComplementaryInformation, dossier.Service.Name
+            );
+
+        var tempFile = Path.GetTempFileName();
+        await System.IO.File.WriteAllTextAsync(tempFile, dossierFile, default);
+        Stream pdfStream = null;
+        await _gotenbergService.ConvertHtmlToPdf(new ConvertHtmlToPdfCommand
+        {
+            Callback = async stream => pdfStream = stream,
+            PathToHtmlFile = tempFile,
+            PdfProperties = new GotenbergChromiumConvertProperties()
+        });
+        return File(pdfStream, "application/pdf");
+    }
+
 
     // endpoint marker - do not delete this comment
 }
