@@ -1,6 +1,6 @@
 ﻿//using DossierPortailAPI.Common.Extensions;
-using ApiTestMongo.Extensions;
-using ApiTestMongo.Extensions.Services;
+using ApiCartobani.Extensions;
+using ApiCartobani.Extensions.Services;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Text;
 
 //namespace DossierPortailAPI.Services.Gotenberg.Ressources
-namespace ApiTestMongo.Gotenberg.Resources
+namespace ApiCartobani.Gotenberg.Resources
 {
     public class GotenbergChromiumConvertProperties
     {

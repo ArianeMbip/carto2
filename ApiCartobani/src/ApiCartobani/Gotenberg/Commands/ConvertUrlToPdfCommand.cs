@@ -1,12 +1,12 @@
 ﻿//using DossierPortailAPI.Services.Gotenberg.Ressources;
-using ApiTestMongo.Gotenberg.Resources;
+using ApiCartobani.Gotenberg.Resources;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 //namespace DossierPortailAPI.Services.Gotenberg.Commands
-namespace ApiTestMongo.Gotenberg.Commands
+namespace ApiCartobani.Gotenberg.Commands
 {
     public class ConvertUrlToPdfCommand : BasePdfGotenbergCommand
     {

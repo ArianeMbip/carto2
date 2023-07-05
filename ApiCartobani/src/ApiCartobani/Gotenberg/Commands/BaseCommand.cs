@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 //namespace DossierPortailAPI.Services.Gotenberg.Commands
-namespace ApiTestMongo.Gotenberg.Commands
+namespace ApiCartobani.Gotenberg.Commands
 {
     public abstract class BaseCommand
     {

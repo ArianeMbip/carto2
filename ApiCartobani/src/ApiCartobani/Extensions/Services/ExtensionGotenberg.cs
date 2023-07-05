@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace ApiCartobani.Extensions.Services
+namespace ApiTestMongo.Extensions.Services
 {
     public static class ExtensionGotenberg
     {

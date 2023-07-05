@@ -76,8 +76,8 @@ public sealed class CartobaniDbContext : ICartobaniDbContext
         _mediator = mediator;
         _dateTimeProvider = dateTimeProvider;
 
-        var mongoClient = new MongoClient("mongodb://localhost:27017");
-        //var mongoClient = new MongoClient("mongodb://172.21.6.30:27017/perco_om_test?maxPoolSize=300");
+       // var mongoClient = new MongoClient("mongodb://localhost:27017");
+        var mongoClient = new MongoClient("mongodb://172.21.6.30:27017/perco_om_test?maxPoolSize=300");
         _database = mongoClient.GetDatabase("testmadb11");
 
         //_database = new MongoClient("mongodb://localhost:27017").GetDatabase("CartoDb");

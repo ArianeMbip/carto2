@@ -1,5 +1,5 @@
 ﻿//namespace DossierPortailAPI.Services.Gotenberg.Ressources
-namespace ApiTestMongo.Gotenberg.Resources
+namespace ApiCartobani.Gotenberg.Resources
 {
     public class PaperProperties
     {

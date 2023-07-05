@@ -2,17 +2,17 @@
 //using DossierPortailAPI.Common.Extensions;
 using ApiTestMongo.Extensions;
 //using DossierPortailAPI.Services.Gotenberg.Ressources;
-using ApiTestMongo.Gotenberg.Resources;
-using ApiTestMongo.Gotenberg.Commands;
+using ApiCartobani.Gotenberg.Resources;
+using ApiCartobani.Gotenberg.Commands;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
-using ApiTestMongo.Extensions.Services;
+using ApiCartobani.Extensions.Services;
 
 
 //namespace DossierPortailAPI.Services.Gotenberg.Commands
-namespace ApiTestMongo.Gotenberg.Commands
+namespace ApiCartobani.Gotenberg.Commands
 {
     public class ConvertOfficeToPdfCommand : BaseCommand
     {

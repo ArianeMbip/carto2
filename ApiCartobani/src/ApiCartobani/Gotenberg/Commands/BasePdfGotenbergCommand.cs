@@ -1,7 +1,7 @@
 ﻿//using DossierPortailAPI.Services.Gotenberg.Ressources;
-using ApiTestMongo.Gotenberg.Resources;
+using ApiCartobani.Gotenberg.Resources;
 
-namespace ApiTestMongo.Gotenberg.Commands
+namespace ApiCartobani.Gotenberg.Commands
 {
     public abstract class BasePdfGotenbergCommand : BaseCommand
     {

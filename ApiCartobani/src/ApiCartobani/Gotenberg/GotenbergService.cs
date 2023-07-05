@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 //using DossierPortailAPI.Services.Gotenberg.Commands;
-using ApiTestMongo.Gotenberg.Commands;
+using ApiCartobani.Gotenberg.Commands;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using System.IO;
 using System;
 
 //namespace DossierPortailAPI.Services.Gotenberg
-namespace ApiTestMongo.Gotenberg
+namespace ApiCartobani.Gotenberg
 {
     public class GotenbergService : IGotenbergService
     {

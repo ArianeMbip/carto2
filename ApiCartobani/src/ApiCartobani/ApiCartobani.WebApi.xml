@@ -1140,153 +1140,160 @@
             Registers all services in the assembly of the given interface.
             </summary>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.Commands.ConvertUrlToPdfCommand.GetFormData">
+        <member name="M:ApiCartobani.Extensions.Services.ExtensionGotenberg.GetSize(ApiCartobani.Gotenberg.Resources.PaperSizeEnum)">
+            <summary>
+            Get width and Height of a Paper
+            </summary>
+            <param name="paperSizeEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiCartobani.Gotenberg.Commands.ConvertUrlToPdfCommand.GetFormData">
             <summary>
             Get Formdata to send to Gotenberg
             </summary>
             <returns></returns>
             <exception cref="T:System.IO.FileNotFoundException">Throw if an asset or a file is not found</exception>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.GotenbergService.ConvertHtmlToPdf(ApiTestMongo.Gotenberg.Commands.ConvertHtmlToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.GotenbergService.ConvertHtmlToPdf(ApiCartobani.Gotenberg.Commands.ConvertHtmlToPdfCommand)">
             <summary>
             Convert html to pdf
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.GotenbergService.ConvertMarkdownToPdf(ApiTestMongo.Gotenberg.Commands.ConvertMarkdownTopdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.GotenbergService.ConvertMarkdownToPdf(ApiCartobani.Gotenberg.Commands.ConvertMarkdownTopdfCommand)">
             <summary>
             Convert markdown to pdf
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.GotenbergService.ConvertOfficeToPdf(ApiTestMongo.Gotenberg.Commands.ConvertOfficeToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.GotenbergService.ConvertOfficeToPdf(ApiCartobani.Gotenberg.Commands.ConvertOfficeToPdfCommand)">
             <summary>
             Convert Office to Pdf
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.GotenbergService.ConvertUrlToPdf(ApiTestMongo.Gotenberg.Commands.ConvertUrlToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.GotenbergService.ConvertUrlToPdf(ApiCartobani.Gotenberg.Commands.ConvertUrlToPdfCommand)">
             <summary>
             This route accepts a form field url with the URL of the page you want to convert to PDF.
             </summary>
             <param name="command">The command to launch the conversion of the url to Pdf</param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.IGotenbergService.ConvertUrlToPdf(ApiTestMongo.Gotenberg.Commands.ConvertUrlToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.IGotenbergService.ConvertUrlToPdf(ApiCartobani.Gotenberg.Commands.ConvertUrlToPdfCommand)">
             <summary>
             Convert an url to pdf
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.IGotenbergService.ConvertHtmlToPdf(ApiTestMongo.Gotenberg.Commands.ConvertHtmlToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.IGotenbergService.ConvertHtmlToPdf(ApiCartobani.Gotenberg.Commands.ConvertHtmlToPdfCommand)">
             <summary>
             Convert html to pdf
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.IGotenbergService.ConvertMarkdownToPdf(ApiTestMongo.Gotenberg.Commands.ConvertMarkdownTopdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.IGotenbergService.ConvertMarkdownToPdf(ApiCartobani.Gotenberg.Commands.ConvertMarkdownTopdfCommand)">
             <summary>
             Convert markdown to pdf
             </summary>
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:ApiTestMongo.Gotenberg.IGotenbergService.ConvertOfficeToPdf(ApiTestMongo.Gotenberg.Commands.ConvertOfficeToPdfCommand)">
+        <member name="M:ApiCartobani.Gotenberg.IGotenbergService.ConvertOfficeToPdf(ApiCartobani.Gotenberg.Commands.ConvertOfficeToPdfCommand)">
             <summary>
             Convert Office to Pdf
             </summary>
             <returns></returns>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.PaperProperties">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.PaperProperties">
             <summary>
             The properties of the result pdf
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.WaitDelay">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.WaitDelay">
             <summary>
             Duration to wait when loading an HTML document before converting it to PDF
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.WaitWindowStatut">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.WaitWindowStatut">
             <summary>
             The window.status value to wait for before converting an HTML document to PDF
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.ExtraHttpHeaders">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.ExtraHttpHeaders">
             <summary>
              HTTP headers to send by Chromium while loading the HTML document (JSON format)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.NativePageRanges">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.NativePageRanges">
             <summary>
             Page ranges to print, e.g., '1-5, 8, 11-13' - empty means all pages
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.PdfFormat">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.PdfFormat">
             <summary>
             The PDF format of the resulting PDF
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.GotenbergChromiumConvertProperties.Assets">
+        <member name="P:ApiCartobani.Gotenberg.Resources.GotenbergChromiumConvertProperties.Assets">
             <summary>
             List of Assets (fonts, stylesheets, images)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.PaperWidth">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.PaperWidth">
             <summary>
             Paper width, in inches (default 8.5)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.PaperHeight">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.PaperHeight">
             <summary>
             Paper height, in inches (default 11)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.MarginTop">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.MarginTop">
             <summary>
             Top margin, in inches (default 0.39)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.MarginBottom">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.MarginBottom">
             <summary>
             Bottom margin, in inches (default 0.39)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.MarginLeft">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.MarginLeft">
             <summary>
             Left margin, in inches (default 0.39)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.MarginRight">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.MarginRight">
             <summary>
             Right margin, in inches (default 0.39)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.PreferCssPageSize">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.PreferCssPageSize">
             <summary>
             Define whether to prefer page size as defined by CSS (default false)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.PrintBackground">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.PrintBackground">
             <summary>
             Print the background graphics (default false)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.Landscape">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.Landscape">
             <summary>
             Set the paper orientation to landscape (default false)
             </summary>
         </member>
-        <member name="P:ApiTestMongo.Gotenberg.Resources.PaperProperties.Scale">
+        <member name="P:ApiCartobani.Gotenberg.Resources.PaperProperties.Scale">
             <summary>
             The scale of the page rendering (default 1.0)
             </summary>
         </member>
-        <member name="M:ApiTestMongo.Extensions.Services.ExtensionGotenberg.GetSize(ApiTestMongo.Gotenberg.Resources.PaperSizeEnum)">
+        <member name="M:ApiTestMongo.Extensions.Services.ExtensionGotenberg.GetSize(ApiCartobani.Gotenberg.Resources.PaperSizeEnum)">
             <summary>
             Get width and Height of a Paper
             </summary>
@@ -1296,19 +1303,19 @@
         <member name="T:Refit.Implementation.Generated">
             <inheritdoc />
         </member>
-        <member name="T:Refit.Implementation.Generated.ApiTestMongoGotenbergIGotenbergApi">
+        <member name="T:Refit.Implementation.Generated.ApiCartobaniGotenbergIGotenbergApi">
             <inheritdoc />
         </member>
-        <member name="P:Refit.Implementation.Generated.ApiTestMongoGotenbergIGotenbergApi.Client">
+        <member name="P:Refit.Implementation.Generated.ApiCartobaniGotenbergIGotenbergApi.Client">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.ApiTestMongoGotenbergIGotenbergApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+        <member name="M:Refit.Implementation.Generated.ApiCartobaniGotenbergIGotenbergApi.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.ApiTestMongoGotenbergIGotenbergApi.ConvertHtmlToPdf(Refit.StreamPart,Refit.StreamPart,Refit.StreamPart,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:Refit.Implementation.Generated.ApiCartobaniGotenbergIGotenbergApi.ConvertHtmlToPdf(Refit.StreamPart,Refit.StreamPart,Refit.StreamPart,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.ApiTestMongoGotenbergIGotenbergApi.ApiTestMongo#Gotenberg#IGotenbergApi#ConvertHtmlToPdf(Refit.StreamPart,Refit.StreamPart,Refit.StreamPart,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:Refit.Implementation.Generated.ApiCartobaniGotenbergIGotenbergApi.ApiCartobani#Gotenberg#IGotenbergApi#ConvertHtmlToPdf(Refit.StreamPart,Refit.StreamPart,Refit.StreamPart,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <inheritdoc />
         </member>
     </members>

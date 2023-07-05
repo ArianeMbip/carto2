@@ -1,9 +1,9 @@
 ﻿//using DossierPortailAPI.Services.Gotenberg.Commands;
-using ApiTestMongo.Gotenberg.Commands;
+using ApiCartobani.Gotenberg.Commands;
 using System.Threading.Tasks;
 
 //namespace DossierPortailAPI.Services.Gotenberg
-namespace ApiTestMongo.Gotenberg
+namespace ApiCartobani.Gotenberg
 {
     public interface IGotenbergService
     {

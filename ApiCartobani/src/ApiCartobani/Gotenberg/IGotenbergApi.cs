@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 //namespace DossierPortailAPI.Services.Gotenberg
-namespace ApiTestMongo.Gotenberg
+namespace ApiCartobani.Gotenberg
 {
     public interface IGotenbergApi
     {
